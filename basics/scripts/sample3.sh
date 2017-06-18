@@ -1,14 +1,14 @@
 #!/bin/bash
 if [ "$1" == "delete" ]; then
-  echo "deleting stack lessons-basic-sample2-stack"
-  aws cloudformation delete-stack --stack-name lessons-basic-sample2-stack
+  echo "deleting stack lessons-basic-sample3-stack"
+  aws cloudformation delete-stack --stack-name lessons-basic-sample3-stack
 elif [ "$1" == "validate" ]; then
-  echo "validating stack lessons-basic-sample2-stack"
-  aws cloudformation validate-template --template-body file://../templates/sample2.yaml
+  echo "validating stack lessons-basic-sample3-stack"
+  aws cloudformation validate-template --template-body file://../templates/sample3.yaml
 elif [ "$1" == "create" ]; then
-  echo "creating stack lessons-basic-sample2-stack"
-  aws cloudformation create-stack --stack-name lessons-basic-sample2-stack \
-                                  --template-body file://../templates/sample2.yaml \
+  echo "creating stack lessons-basic-sample3-stack"
+  aws cloudformation create-stack --stack-name lessons-basic-sample3-stack \
+                                  --template-body file://../templates/sample3.yaml \
 				  --parameters ParameterKey=ParamImageId,ParameterValue=ami-fc5ae39f \
 				  ParameterKey=ParamKeyName,ParameterValue=lessons \
 				  ParameterKey=ParamInstanceType,ParameterValue=t2.micro \
