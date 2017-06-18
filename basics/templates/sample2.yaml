@@ -18,7 +18,7 @@ Resources:
       AvailabilityZone: ap-southeast-1a 
       BlockDeviceMappings:
         - DeviceName: "/dev/xvda"
-	  Ebs:
-	    VolumeType: "gp2"
-	    VolumeSize: "20"
-	    DeleteOnTermination: "true"
+          Ebs:
+            VolumeType: "gp2"
+            VolumeSize: "20"
+            DeleteOnTermination: "true"
