@@ -15,7 +15,7 @@ elif [ "$1" == "create" ]; then
 				  ParameterKey=ParamTagNameValue,ParameterValue=lessons-basic-myec2instance \
 				  ParameterKey=ParamTagGroupValue,ParameterValue=lessons \
 				  ParameterKey=ParamAvailabilityZone,ParameterValue=ap-southeast-1a \
-				  ParameterKey=ParamVolumeSize,ParameterValue=20 \
+				  ParameterKey=ParamVolumeSize,ParameterValue=20 
 else
   echo "usage:"
   echo "  $0 validate"
