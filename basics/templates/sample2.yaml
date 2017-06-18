@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "A sample template with a tag name, availability zone and 20GB storage"
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: "ami-fc5ae39f"
+      InstanceType: t2.micro
+      KeyName: lessons
+      Tags:
+        -
+          Key: "Name"
+          Value: "lessons-basic-myec2instance" 
+        -
+          Key: "Group"
+          Value: "lessons"
+      
+      AvailabilityZone: ap-southeast-1a 
+      BlockDeviceMappings:
+        - DeviceName: "/dev/xvda"
+	  Ebs:
+	    VolumeType: "gp2"
+	    VolumeSize: "20"
+	    DeleteOnTermination: "true"
