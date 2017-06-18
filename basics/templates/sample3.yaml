@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "A sample template with a parameterized values"
+Parameters:
+  ParamImageId:
+    Description: "imageId to be used in this instance"
+    Type: String
+  ParamKeyName:
+    Description: "name of the existing EC2 KeyName to enable ssh to the instance"
+    Type: "AWS::EC2::KeyPair::KeyName"
+  ParamInstanceType:
+    Description: "instance type"
+    Type: String
+  ParamTagNameValue:
+    Description: "tag name value"
+    Type: String
+  ParamTagGroupValue:
+    Description: "tag group value"
+    Type: String
+  ParamAvailabilityZone:
+    Description: "availability zone"
+    Type: String
+  ParamVolumeSize:
+    Description: "volume size"
+    Type: String
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !Ref ParamImageId
+      InstanceType: !Ref ParamInstanceType
+      KeyName: !Ref ParamKeyName
+      Tags:
+        -
+          Key: "Name"
+          Value: !Ref ParamTagNameValue
+        -
+          Key: "Group"
+          Value: !Ref ParamTagGroupValue
+      AvailabilityZone: !Ref ParamAvailabilityZone
+      BlockDeviceMappings:
+        - DeviceName: "/dev/xvda"
+          Ebs:
+            VolumeType: "gp2"
+            VolumeSize: !Ref ParamVolumeSize
+            DeleteOnTermination: "true"
